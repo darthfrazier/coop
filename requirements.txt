@@ -1,0 +1,5 @@
+Flask==1.1.1
+Werkzeug==0.16.0
+google-cloud-datastore
+googleapis-common-protos==1.6.0
+pylibmc==1.6.1

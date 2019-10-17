@@ -1,0 +1,6 @@
+runtime: python37
+
+env_variables:
+  MEMCACHE_SERVER: memcached-18487.c124.us-central1-1.gce.cloud.redislabs.com:18487
+  MEMCACHE_USERNAME: frazierk
+  MEMCACHE_PASSWORD: testcachepassword
