@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/CreateNewProfile', methods=['POST'])
 def create_new_profile():
     datastore_client = datastore.Client()
-    profile.create_new_profile(datastore_client, request.args['username'], request.get_json())
+    profile.create_new_profile(datastore_client, request.args['username'], request.get_json(), True)
     return jsonify(success=True)
 
 @app.route('/RetrieveProfile', methods=['GET'])
@@ -34,7 +34,7 @@ def delete_profile():
 def start_matchmaking():
     datastore_client = datastore.Client()
     user_profile = profile.retrieve_profile(datastore_client, request.args['username'])
-    return jsonify(match.start_matchmaking(request.args['username'], vars(user_profile), request.args['game'], request.args['use_voice_chat']))
+    return jsonify(match.start_matchmaking(request.args['username'], vars(user_profile), request.args['game'], request.args.get('level_match_buffer'), request.args['use_voice_chat']))
 
 
 if __name__ == '__main__':
